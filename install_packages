@@ -1,0 +1,14 @@
+# install tweepy in windows
+# 1. download tweepy packages from github: https://github.com/tweepy/tweepy
+# 2. unzip the package on desktop
+# 3. rename the folder to tweepy
+# 4. change path in windows settings: http://stackoverflow.com/questions/7054424/python-not-recognised-as-a-command 
+# 5. in windows cmd window, cd desktop\tweepy
+# 6. python setup.py install
+
+# install twython in windows
+# 1. download twyton packages from github: https://github.com/ryanmcgrath/twython
+# 2. unzip the package on desktop
+# 3. rename the folder to twython
+# 4. in windows cmd window, cd desktop\twython
+# 5. python setup.py install
