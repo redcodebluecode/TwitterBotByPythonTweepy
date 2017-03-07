@@ -1,4 +1,4 @@
-# Reference：https://www.digitalocean.com/community/tutorials/how-to-create-a-twitterbot-with-python-3-and-the-tweepy-library
+# Reference: https://www.digitalocean.com/community/tutorials/how-to-create-a-twitterbot-with-python-3-and-the-tweepy-library
 
 # Add all import statements at top of file
 import tweepy
@@ -31,7 +31,7 @@ def tweet():
 # Add if statement to ensure that blank lines are skipped
             if line != '\n':
                 api.update_status(line)
-				sleep(5)
+                sleep(5)
 # Add an else statement with pass to conclude the conditional statement
             else:
                 pass
