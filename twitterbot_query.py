@@ -48,8 +48,17 @@ twtr()
 # twtr3()
 
 #################################################################
+# Collect 200 tweets with KEYWORD, then select the ones from screen_name
 for tweet in tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(200):
     if tweet.user.screen_name == SCREEN_NAME:
+	    print tweet.text
+	    print tweet.user.screen_name
+	    print tweet.created_at
+	    print tweet.user.time_zone
+
+# Collect 200 tweets from screen_name, then select the ones with KEYWORD
+for tweet in api.user_timeline(screen_name=SCREEN_NAME, count=200):
+    if KEYWORD in tweet.text:
 	    print tweet.text
 	    print tweet.user.screen_name
 	    print tweet.created_at
