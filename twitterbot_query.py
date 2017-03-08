@@ -10,7 +10,39 @@ api = tweepy.API(auth)
 
 SCREEN_NAME = "WallStJesus"
 KEYWORD = "$BAC"
-# for tweet in tweepy.Cursor(api.search, screen_name=SCREEN_NAME, q=KEYWORD, since="2017-02-07", until="2017-03-05", lang="en").items(20):
-    # print('Tweet by: @' + tweet.user.screen_name + ' about KEYWORD: ' + KEYWORD + tweet.text)
-for tweet in tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(20):
-    print 'tweet:' + tweet + '/n tweet.text:' + tweet.text + '/n tweet.from_user:' + tweet.from_user + '/n tweet.screen_name:' + tweet.screen_name + '/n tweet.time:' + tweet.time
+
+def twtr():
+    for tweet in tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(1):
+        print tweet.text.encode('utf-8')
+        print tweet.user.screen_name # <- gives user name
+        print tweet.user.name # <- gives nickname
+        print tweet.user.id # <- gives user id
+        print tweet.created_at # gives tweet creation time
+        print tweet.user.time_zone
+        print tweet.geo
+        print tweet.coordinates
+        print tweet.user.location
+        print tweet.user.created_at # <- gives account creation time
+        print tweet.user.lang
+        # print tweet.user.id_str # <- gives user id
+        # print tweet.id
+twtr()
+
+#################################################################
+
+def twtr2():
+    raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
+    for tweet in raw_tweets:
+        if tweet['user']['screen_name'] == SCREEN_NAME:
+            print tweet
+twtr2()
+
+#################################################################
+
+def twtr3():
+    raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
+    for tweet in raw_tweets:
+        load_tweet = json.loads(tweet)
+        if load_tweet['user']['screen_name'] == SCREEN_NAME:
+            print tweet
+twtr3()
