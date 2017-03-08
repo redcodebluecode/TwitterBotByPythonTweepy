@@ -29,20 +29,28 @@ def twtr():
 twtr()
 
 #################################################################
-
-def twtr2():
-    raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
-    for tweet in raw_tweets:
-        if tweet['user']['screen_name'] == SCREEN_NAME:
-            print tweet
-twtr2()
+# not working
+# def twtr2():
+#     raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
+#　    for tweet in raw_tweets:
+#         if tweet['user']['screen_name'] == SCREEN_NAME:
+#             print tweet
+# twtr2()
 
 #################################################################
+# not working
+# def twtr3():
+#     raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
+#     for tweet in raw_tweets:
+#         load_tweet = json.loads(tweet)
+#         if load_tweet['user']['screen_name'] == SCREEN_NAME:
+#             print tweet
+# twtr3()
 
-def twtr3():
-    raw_tweets = tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(50)
-    for tweet in raw_tweets:
-        load_tweet = json.loads(tweet)
-        if load_tweet['user']['screen_name'] == SCREEN_NAME:
-            print tweet
-twtr3()
+#################################################################
+for tweet in tweepy.Cursor(api.search, q=KEYWORD, lang="en").items(200):
+    if tweet.user.screen_name == SCREEN_NAME:
+	    print tweet.text
+	    print tweet.user.screen_name
+	    print tweet.created_at
+	    print tweet.user.time_zone
