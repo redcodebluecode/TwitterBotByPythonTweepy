@@ -1,22 +1,42 @@
 # Reference: https://dototot.com/write-twitter-bot-python-tweepy-tweet-list-users/
 
 # Import Tweepy, sleep, credentials.py
-import tweepy, sys
+import tweepy, sys, time
 from time import sleep
 from random import randint
 from credentials import *
 
-handles = sys.argv[1]
-f = open(handles, "r")
-h = f.readlines()
-f.close()
- 
-for i in h:
-    i = i.rstrip()
-    m = i + " " + sys.argv[2]
-    s = api.update_status(m)
-    nap = randint(1, 60)
-    time.sleep(nap)
+# Access and authorize our Twitter credentials from credentials.py
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
 
-# To run the python program
-# python twitter_nudge.py handles.txt "Hello"
+def mention(handle_list,greetings):
+    name_list = handle_list
+    f = open(name_list, "r")
+    h = f.readlines()
+    f.close()
+    for i in h:
+        try:
+            i = i.rstrip()
+            m = i + " " + greetings
+            s = api.update_status(status=m)
+            nap = randint(1, 5)
+            time.sleep(nap)
+        except tweepy.TweepError as e:
+            print(e.reason)    
+mention("handles.txt", "Hello! I am a robot. Nice to meet you!")
+
+def send_dm(handle_list,direct_message):
+    f = open(handle_list, "r")
+    h = f.readlines()
+    f.close()
+    for i in h:
+        try:
+            i = i.rstrip()
+            api.send_direct_message(screen_name = i, text = direct_message)
+            nap = randint(1, 5)
+            time.sleep(nap)
+        except tweepy.TweepError as e:
+            print(e.reason)
+send_dm("handles.txt", "Hello! This is a robot direct message! Cool, right?")
