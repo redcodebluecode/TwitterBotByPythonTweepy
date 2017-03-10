@@ -25,7 +25,7 @@ def mention(handle_list,greetings):
             time.sleep(nap)
         except tweepy.TweepError as e:
             print(e.reason)    
-mention("handles.txt", "Hello! I am a robot. Nice to meet you!")
+mention("handles.txt", "Hello! Nice to meet you!")
 
 def send_dm(handle_list,direct_message):
     f = open(handle_list, "r")
@@ -39,4 +39,4 @@ def send_dm(handle_list,direct_message):
             time.sleep(nap)
         except tweepy.TweepError as e:
             print(e.reason)
-send_dm("handles.txt", "Hello! This is a robot direct message! Cool, right?")
+send_dm("handles.txt", "Hello! This is my direct message to you.")
