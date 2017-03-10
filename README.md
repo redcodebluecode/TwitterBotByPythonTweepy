@@ -13,13 +13,13 @@ The robots can do the following things for you:
 - Send direct messages to a specified list of users.
 
 Contents
-+ credentials.py	        - Credential information.
-+ handles.txt	            - List of users for sending tweets and direct messages.
-+ helloworld.txt	        - A word document for updating status.
-+ install_packages	      - Packages that need to be installed for these robots.
-+ reference	              - Reference.
-+ twitterbot_follow.py    - Follow users who are your followers and unfollow users who are not your followers.
-+ twitterbot_nudge.py	    - Send tweets with metions and direct messages to a specified list of users.
-+ twitterbot_query.py     - Query a specified user with a specified keyword.
-+ twitterbot_retweet.py   - Retweet and favourite tweets with a specified hashtag. Follow users sent tweets with a specified hashtag.
-+ twitterbot_textfile.py	- Update status from a specified document according to a time schedule.
++ **credentials.py**	        - Credential information.
++ **handles.txt**	            - List of users for sending tweets and direct messages.
++ **helloworld.txt**	        - A word document for updating status.
++ **install_packages**	      - Packages that need to be installed for these robots.
++ **reference**	              - Reference.
++ **twitterbot_follow.py**    - Follow users who are your followers and unfollow users who are not your followers.
++ **twitterbot_nudge.py**	    - Send tweets with metions and direct messages to a specified list of users.
++ **twitterbot_query.py**     - Query a specified user with a specified keyword.
++ **twitterbot_retweet.py**   - Retweet and favourite tweets with a specified hashtag. Follow users sent tweets with a specified hashtag.
++ **twitterbot_textfile.py**	- Update status from a specified document according to a time schedule.
